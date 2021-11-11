@@ -22,7 +22,7 @@ function formPromises (e) {
   const {
     elements: {delay, step, amount},
   } = e.currentTarget;
-   if(amount.value < 0) {
+   if(amount.value <= 0) {
      window.alert('Amount should be a positive number!');
      return;
    }
@@ -32,7 +32,7 @@ function formPromises (e) {
    }
 
    let formDelay = Number(delay.value);
-   for (let i = 1; i < Number(amount.value); i += 1) {
+   for (let i = 1; i <= Number(amount.value); i += 1) {
      createPromise(i, formDelay);
      formDelay += Number(step.value);
    }
